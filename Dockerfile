@@ -15,6 +15,7 @@ WORKDIR /root
 RUN git clone --recursive https://github.com/PX4/PX4-Autopilot.git
 
 WORKDIR /root/PX4-Autopilot
-RUN make px4_sitl_default -j$(nproc)
+RUN bash ./Tools/setup/ubuntu.sh
+RUN make px4_sitl_default
 
-ENTRYPOINT ["./build/px4_sitl_default/bin/px4", "./build/px4_sitl_default/etc", "-s", "etc/init.d-posix/rcS", "-t", "etc"]ё
+CMD ["bash", "-c", "HEADLESS=1 make px4_sitl gz_x500_vision"]
