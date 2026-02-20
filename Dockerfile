@@ -9,6 +9,7 @@ RUN apt-get update && apt-get install -y \
     python3-yaml \
     python3-packaging \
     python3-pip \
+    iproute2 \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /root
